@@ -11,3 +11,11 @@ FROM Oficina
 INNER JOIN Ciudad ON Oficina.idCiudad = Ciudad.idCiudad
 INNER JOIN Pais ON Ciudad.fk_idRegion = Pais.idPais
 WHERE Pais.nombrePais = 'España';
+
+-- 3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7.
+SELECT e.nombreEmpleado, e.apellido1Empleado, e.email
+FROM Empleado e
+WHERE codigoJefe = 7;
+
+-- 4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
+SELECT * FROM Empleado;

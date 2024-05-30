@@ -41,7 +41,7 @@ CREATE TABLE Direccion (
     direccion2 VARCHAR(50),
     codigoPostal VARCHAR(10),
     idCiudad INT,
-    CONSTRAINT pk_idDireccion PRIMARY KEY (idDireccion)
+    CONSTRAINT pk_idDireccion PRIMARY KEY (idDireccion),
     CONSTRAINT fk_DireccionCiudad FOREIGN KEY (idCiudad) REFERENCES Ciudad(idCiudad)
 );
 
@@ -182,7 +182,7 @@ INSERT INTO Pais (nombrePais) VALUES
 ('Cuba'),
 ('Ecuador'),
 ('El Salvador'),
-('Guatemala');
+('España');
 
 -- Registros tabla Region
 INSERT INTO Region (nombreRegion, fk_idPais) VALUES
@@ -195,7 +195,7 @@ INSERT INTO Region (nombreRegion, fk_idPais) VALUES
 ('La Habana', 7),
 ('Guayas', 8),
 ('San Salvador', 9),
-('Petén', 10);
+('Barcelona', 10);
 
 -- Registros tabla Ciudad
 INSERT INTO Ciudad (nombreCiudad, fk_idRegion) VALUES
@@ -239,7 +239,7 @@ INSERT INTO Oficina (idOficina, idCiudad, idPais, telefonoOficina, idDireccion) 
 --
 INSERT INTO Empleado (nombreEmpleado, apellido1Empleado, apellido2Empleado, telefonoEmpleado, extension, email, idOficina, codigoJefe, puesto) VALUES
 ('Juan', 'Pérez', 'González', '+54 11 4567890', '1234', 'juan.perez@empresa.com', 'BAQ001', NULL, 'Programador'),
-('María', 'García', 'López', '+54 11 5678901', '2345', 'maria.garcia@empresa.com', 'SCL987', NULL, 'Analista de Sistemas'),
+('María', 'García', 'López', '+54 11 5678901', '2345', 'maria.garcia@empresa.com', 'SCZ123', NULL, 'Analista de Sistemas'),
 ('Pedro', 'Silva', 'Martínez', '+55 21 6789012', '3456', 'pedro.silva@empresa.com', 'RIO234', NULL, 'Desarrollador Web'),
 ('Ana', 'Román', 'Díaz', '+56 2 7890123', '4567', 'ana.roman@empresa.com', 'SGO789', NULL, 'Diseñadora Gráfica'),
 ('Carlos', 'Flores', 'Ramírez', '+57 4 2345678', '5678', 'carlos.flores@empresa.com', 'MED456', NULL, 'Contador'),
@@ -251,40 +251,40 @@ INSERT INTO Empleado (nombreEmpleado, apellido1Empleado, apellido2Empleado, tele
 
 -- Registros tabla Cliente
 INSERT INTO Cliente (nombreCliente, idContacto, telefonoCliente, fax, idDireccion, idEmpleado, idCiudad, idPais, limiteCredito) VALUES
-('Distribuidora Rodriguez & Cia', 5, '+54 11 67890123', '+54 11 67890124', 6, 18, 1, 1, 350000.00),
-('Supermercados del Sur S.A.', NULL, '+591 3 8901234', '', 9, NULL, 2, 2, 200000.00),
-('Electrónica Silva S.A.', 6, '+55 21 34567890', '+55 21 34567891', 1, 12, 3, 3, 175000.00),
-('Textiles del Pacífico Ltda.', NULL, '+56 2 98765432', '', 5, 5, 4, 4, 100000.00),
-('Cafeterias Aroma & Sabor', 7, '+57 4 3210987', '+57 4 3210988', 10, 10, 5, 5, 60000.00),
-('Carnes y Embutidos La Fortuna', NULL, '+506 2 5678901', '', 2, 15, 6, 6, 90000.00),
-('Pescadería Mariscos del Caribe', 8, '+503 2 7654321', '+503 2 7654322', 7, 12, 9, 9, 50000.00),
-('Panificadora El Horno Dorado', NULL, '+502 5 8765432', '', 4, 18, 10, 10, 40000.00);
+('Distribuidora Rodriguez & Cia', 5, '+54 11 67890123', '+54 11 67890124', 6, 31, 1, 1, 350000.00),
+('Supermercados del Sur S.A.', NULL, '+591 3 8901234', '', 9, 32, 2, 2, 200000.00),
+('Electrónica Silva S.A.', 6, '+55 21 34567890', '+55 21 34567891', 1, 33, 3, 3, 175000.00),
+('Textiles del Pacífico Ltda.', NULL, '+56 2 98765432', '', 5, 34, 4, 4, 100000.00),
+('Cafeterias Aroma & Sabor', 7, '+57 4 3210987', '+57 4 3210988', 10, 35, 5, 5, 60000.00),
+('Carnes y Embutidos La Fortuna', NULL, '+506 2 5678901', '', 2, 36, 6, 6, 90000.00),
+('Pescadería Mariscos del Caribe', 8, '+503 2 7654321', '+503 2 7654322', 7, 37, 9, 9, 50000.00),
+('Panificadora El Horno Dorado', NULL, '+502 5 8765432', '', 4, 38, 10, 10, 40000.00);
 
 -- Registros tabla Pago
 INSERT INTO Pago (idPago, formaPago, fechaPago, total, idCliente) VALUES 
-('P001', 'Efectivo', '2023-01-01 12:00:00', 1000.00, 1),
-('P002', 'Transferencia', '2023-02-01 13:00:00', 2000.00, 2),
-('P003', 'Tarjeta', '2023-03-01 14:00:00', 3000.00, 3),
-('P004', 'Efectivo', '2023-04-01 15:00:00', 4000.00, 4),
-('P005', 'Transferencia', '2023-05-01 16:00:00', 5000.00, 5),
-('P006', 'Tarjeta', '2023-06-01 17:00:00', 6000.00, 6),
-('P007', 'Efectivo', '2023-07-01 18:00:00', 7000.00, 7),
-('P008', 'Transferencia', '2023-08-01 19:00:00', 8000.00, 8),
-('P009', 'Tarjeta', '2023-09-01 20:00:00', 9000.00, 9),
-('P010', 'Efectivo', '2023-10-01 21:00:00', 10000.00, 10);
+('P001', 'Efectivo', '2023-01-01 12:00:00', 1000.00, 9),
+('P002', 'Transferencia', '2023-02-01 13:00:00', 2000.00, 10),
+('P003', 'Tarjeta', '2023-03-01 14:00:00', 3000.00, 11),
+('P004', 'Efectivo', '2023-04-01 15:00:00', 4000.00, 12),
+('P005', 'Transferencia', '2023-05-01 16:00:00', 5000.00, 13),
+('P006', 'Tarjeta', '2023-06-01 17:00:00', 6000.00, 14),
+('P007', 'Efectivo', '2023-07-01 18:00:00', 7000.00, 15),
+('P008', 'Transferencia', '2023-08-01 19:00:00', 8000.00, 16),
+('P009', 'Tarjeta', '2023-09-01 20:00:00', 9000.00, 11),
+('P010', 'Efectivo', '2023-10-01 21:00:00', 10000.00, 15);
 
 -- Registros tabla Pedido
 INSERT INTO Pedido (fechaPedido, fechaEsperada, fechaEntrega, estado, comentarios, idCliente) VALUES 
-('2023-01-01 10:00:00', '2023-01-10 10:00:00', '2023-01-09 10:00:00', 'Entregado', 'Pedido entregado a tiempo', 1),
-('2023-02-01 11:00:00', '2023-02-10 11:00:00', '2023-02-09 11:00:00', 'Entregado', 'Pedido entregado a tiempo', 2),
-('2023-03-01 12:00:00', '2023-03-10 12:00:00', '2023-03-09 12:00:00', 'Entregado', 'Pedido entregado a tiempo', 3),
-('2023-04-01 13:00:00', '2023-04-10 13:00:00', '2023-04-09 13:00:00', 'Entregado', 'Pedido entregado a tiempo', 4),
-('2023-05-01 14:00:00', '2023-05-10 14:00:00', '2023-05-09 14:00:00', 'Entregado', 'Pedido entregado a tiempo', 5),
-('2023-06-01 15:00:00', '2023-06-10 15:00:00', '2023-06-09 15:00:00', 'Entregado', 'Pedido entregado a tiempo', 6),
-('2023-07-01 16:00:00', '2023-07-10 16:00:00', '2023-07-09 16:00:00', 'Entregado', 'Pedido entregado a tiempo', 7),
-('2023-08-01 17:00:00', '2023-08-10 17:00:00', '2023-08-09 17:00:00', 'Entregado', 'Pedido entregado a tiempo', 8),
-('2023-09-01 18:00:00', '2023-09-10 18:00:00', '2023-09-09 18:00:00', 'Entregado', 'Pedido entregado a tiempo', 9),
-('2023-10-01 19:00:00', '2023-10-10 19:00:00', '2023-10-09 19:00:00', 'Entregado', 'Pedido entregado a tiempo', 10);
+('2023-01-01 10:00:00', '2023-01-10 10:00:00', '2023-01-09 10:00:00', 'Entregado', 'Pedido entregado a tiempo', 9),
+('2023-02-01 11:00:00', '2023-02-10 11:00:00', '2023-02-09 11:00:00', 'Entregado', 'Pedido entregado a tiempo', 10),
+('2023-03-01 12:00:00', '2023-03-10 12:00:00', '2023-03-09 12:00:00', 'Entregado', 'Pedido entregado a tiempo', 11),
+('2023-04-01 13:00:00', '2023-04-10 13:00:00', '2023-04-09 13:00:00', 'Entregado', 'Pedido entregado a tiempo', 12),
+('2023-05-01 14:00:00', '2023-05-10 14:00:00', '2023-05-09 14:00:00', 'Entregado', 'Pedido entregado a tiempo', 13),
+('2023-06-01 15:00:00', '2023-06-10 15:00:00', '2023-06-09 15:00:00', 'Entregado', 'Pedido entregado a tiempo', 14),
+('2023-07-01 16:00:00', '2023-07-10 16:00:00', '2023-07-09 16:00:00', 'Entregado', 'Pedido entregado a tiempo', 15),
+('2023-08-01 17:00:00', '2023-08-10 17:00:00', '2023-08-09 17:00:00', 'Entregado', 'Pedido entregado a tiempo', 16),
+('2023-09-01 18:00:00', '2023-09-10 18:00:00', '2023-09-09 18:00:00', 'Entregado', 'Pedido entregado a tiempo', 10),
+('2023-10-01 19:00:00', '2023-10-10 19:00:00', '2023-10-09 19:00:00', 'Entregado', 'Pedido entregado a tiempo', 9);
 
 -- Registros tabla GamaProducto
 INSERT INTO GamaProducto (gama, descripcionTexto, descripcionHtml, imagen) VALUES 
@@ -306,25 +306,25 @@ INSERT INTO Proveedor (nombreProveedor, telefonoProveedor, idDireccion) VALUES
 ('Proveedor9', '555-6009', 9),
 ('Proveedor10', '555-6010', 10);
 
---
-INSERT INTO Proveedor (nombreProveedor, telefonoProveedor, idDireccion) VALUES 
-('Proveedor1', '555-6001', 1),
-('Proveedor2', '555-6002', 2),
-('Proveedor3', '555-6003', 3),
-('Proveedor4', '555-6004', 4),
-('Proveedor5', '555-6005', 5),
-('Proveedor6', '555-6006', 6),
-('Proveedor7', '555-6007', 7),
-('Proveedor8', '555-6008', 8),
-('Proveedor9', '555-6009', 9),
-('Proveedor10', '555-6010', 10),
+-- Registros tabla Producto
+INSERT INTO Producto (idProducto, nombreProducto, gama, dimensiones, idProveedor, descripcion, cantidadEnStock, precioVenta, precioProveedor) VALUES 
+('P005', 'Producto5', 'Economico', '10x10', 5, 'Descripcion del producto 5', 500, 50.00, 30.00),
+('P006', 'Producto6', 'Medio', '15x15', 6, 'Descripcion del producto 6', 600, 75.00, 45.00),
+('P007', 'Producto7', 'Alto', '20x20', 7, 'Descripcion del producto 7', 700, 100.00, 60.00),
+('P008', 'Producto8', 'Premium', '25x25', 8, 'Descripcion del producto 8', 800, 125.00, 75.00),
+('P009', 'Producto9', 'Economico', '10x10', 9, 'Descripcion del producto 9', 900, 50.00, 30.00),
+('P010', 'Producto10', 'Medio', '15x15', 10, 'Descripcion del producto 10', 1000, 75.00, 45.00),
+('P011', 'Producto11', 'Alto', '20x20', 1, 'Descripcion del producto 11', 1100, 100.00, 60.00),
+('P012', 'Producto12', 'Premium', '25x25', 2, 'Descripcion del producto 12', 1200, 125.00, 75.00),
+('P013', 'Producto13', 'Economico', '10x10', 3, 'Descripcion del producto 13', 1300, 50.00, 30.00),
+('P014', 'Producto14', 'Medio', '15x15', 4, 'Descripcion del producto 14', 1400, 75.00, 45.00);
 
---
+-- Registros tabla DetallePedido
 INSERT INTO DetallePedido (idPedido, idProducto, cantidad, precioUnidad, numeroLinea) VALUES 
-(1, 'P001', 10, 50.00, 1),
-(2, 'P002', 20, 75.00, 1),
-(3, 'P003', 30, 100.00, 1),
-(4, 'P004', 40, 125.00, 1),
+(1, 'P011', 10, 50.00, 1),
+(2, 'P012', 20, 75.00, 1),
+(3, 'P013', 30, 100.00, 1),
+(4, 'P014', 40, 125.00, 1),
 (5, 'P005', 50, 50.00, 1),
 (6, 'P006', 60, 75.00, 1),
 (7, 'P007', 70, 100.00, 1),
