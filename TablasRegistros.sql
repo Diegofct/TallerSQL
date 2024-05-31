@@ -236,7 +236,7 @@ INSERT INTO Oficina (idOficina, idCiudad, idPais, telefonoOficina, idDireccion) 
 ('SSV543', 9, 9, '+503 2 3456789', 9),
 ('PET678', 10, 10, '+502 5 6789012', 10);
 
---
+-- Registros tabla Empleado
 INSERT INTO Empleado (nombreEmpleado, apellido1Empleado, apellido2Empleado, telefonoEmpleado, extension, email, idOficina, codigoJefe, puesto) VALUES
 ('Juan', 'Pérez', 'González', '+54 11 4567890', '1234', 'juan.perez@empresa.com', 'BAQ001', NULL, 'Programador'),
 ('María', 'García', 'López', '+54 11 5678901', '2345', 'maria.garcia@empresa.com', 'SCZ123', NULL, 'Analista de Sistemas'),
@@ -249,16 +249,37 @@ INSERT INTO Empleado (nombreEmpleado, apellido1Empleado, apellido2Empleado, tele
 ('Luis', 'Rodríguez', 'Álvarez', '+503 2 6789012', '9012', 'luis.rodriguez@empresa.com', 'SSV543', NULL, 'Vendedor'),
 ('Andrea', 'Sánchez', 'Navarro', '+502 5 7890123', '0123', 'andrea.sanchez@empresa.com', 'PET678', NULL, 'Recursos Humanos');
 
+-- Se asigna como jefe al empleado con id 2
+UPDATE Empleado
+SET codigoJefe = 2
+WHERE idEmpleado IN (1, 3);
+
+--
+UPDATE Empleado
+SET codigoJefe = 2
+WHERE idEmpleado IN (8, 7);
+
+--
+UPDATE Empleado
+SET codigoJefe = 4
+WHERE idEmpleado IN (6,9);
+
+--
+UPDATE Empleado
+SET codigoJefe = 5
+WHERE idEmpleado = 10;
+
+
 -- Registros tabla Cliente
 INSERT INTO Cliente (nombreCliente, idContacto, telefonoCliente, fax, idDireccion, idEmpleado, idCiudad, idPais, limiteCredito) VALUES
-('Distribuidora Rodriguez & Cia', 5, '+54 11 67890123', '+54 11 67890124', 6, 31, 1, 1, 350000.00),
-('Supermercados del Sur S.A.', NULL, '+591 3 8901234', '', 9, 32, 2, 2, 200000.00),
-('Electrónica Silva S.A.', 6, '+55 21 34567890', '+55 21 34567891', 1, 33, 3, 3, 175000.00),
-('Textiles del Pacífico Ltda.', NULL, '+56 2 98765432', '', 5, 34, 4, 4, 100000.00),
-('Cafeterias Aroma & Sabor', 7, '+57 4 3210987', '+57 4 3210988', 10, 35, 5, 5, 60000.00),
-('Carnes y Embutidos La Fortuna', NULL, '+506 2 5678901', '', 2, 36, 6, 6, 90000.00),
-('Pescadería Mariscos del Caribe', 8, '+503 2 7654321', '+503 2 7654322', 7, 37, 9, 9, 50000.00),
-('Panificadora El Horno Dorado', NULL, '+502 5 8765432', '', 4, 38, 10, 10, 40000.00);
+('Distribuidora Rodriguez & Cia', 5, '+54 11 67890123', '+54 11 67890124', 6, 1, 1, 1, 350000.00),
+('Supermercados del Sur S.A.', NULL, '+591 3 8901234', '', 9, 2, 2, 2, 200000.00),
+('Electrónica Silva S.A.', 6, '+55 21 34567890', '+55 21 34567891', 1, 3, 3, 3, 175000.00),
+('Textiles del Pacífico Ltda.', NULL, '+56 2 98765432', '', 5, 4, 4, 4, 100000.00),
+('Cafeterias Aroma & Sabor', 7, '+57 4 3210987', '+57 4 3210988', 10, 5, 5, 5, 60000.00),
+('Carnes y Embutidos La Fortuna', NULL, '+506 2 5678901', '', 2, 6, 6, 6, 90000.00),
+('Pescadería Mariscos del Caribe', 8, '+503 2 7654321', '+503 2 7654322', 7, 7, 9, 9, 50000.00),
+('Panificadora El Horno Dorado', NULL, '+502 5 8765432', '', 4, 8, 10, 10, 40000.00);
 
 -- Registros tabla Pago
 INSERT INTO Pago (idPago, formaPago, fechaPago, total, idCliente) VALUES 
@@ -321,13 +342,13 @@ INSERT INTO Producto (idProducto, nombreProducto, gama, dimensiones, idProveedor
 
 -- Registros tabla DetallePedido
 INSERT INTO DetallePedido (idPedido, idProducto, cantidad, precioUnidad, numeroLinea) VALUES 
-(1, 'P011', 10, 50.00, 1),
-(2, 'P012', 20, 75.00, 1),
-(3, 'P013', 30, 100.00, 1),
-(4, 'P014', 40, 125.00, 1),
-(5, 'P005', 50, 50.00, 1),
-(6, 'P006', 60, 75.00, 1),
-(7, 'P007', 70, 100.00, 1),
-(8, 'P008', 80, 125.00, 1),
-(9, 'P009', 90, 50.00, 1),
-(10, 'P010', 100, 75.00, 1);
+(11, 'P011', 10, 50.00, 1),
+(12, 'P012', 20, 75.00, 1),
+(13, 'P013', 30, 100.00, 1),
+(14, 'P014', 40, 125.00, 1),
+(15, 'P005', 50, 50.00, 1),
+(16, 'P006', 60, 75.00, 1),
+(17, 'P007', 70, 100.00, 1),
+(18, 'P008', 80, 125.00, 1),
+(19, 'P009', 90, 50.00, 1),
+(20, 'P010', 100, 75.00, 1);
