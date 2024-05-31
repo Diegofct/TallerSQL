@@ -67,3 +67,35 @@ WHERE fechaEntrega > fechaEsperada;
 esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al
 menos dos días antes de la fecha esperada.
 */
+
+-- Usando la funcion ADDDATE de MySQL.
+SELECT idPedido, idCliente, fechaEsperada, fechaEntrega
+FROM Pedido
+WHERE fechaEntrega <= ADDDATE(fechaEsperada, INTERVAL -2 DAY);
+
+-- Utilizando la funcion DATEDIFF de MySQL.
+SELECT idPedido, idCliente, fechaEsperada, fechaEntrega
+FROM Pedido
+WHERE DATEDIFF(fechaEsperada, fechaEntrega) >= 2;
+
+ -- 11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009.
+SELECT idPedido, idCliente, fechaPedido, estado
+FROM Pedido
+WHERE estado = 'Rechazado' AND YEAR(fechaPedido) = 2009;
+
+-- 12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
+SELECT idPedido, idCliente, fechaEntrega
+FROM Pedido
+WHERE MONTH(fechaEntrega) = 1;
+
+-- 13. Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal. Ordene el resultado de mayor a menor.
+SELECT p.idPago, p.formaPago, p.fechaPago, p.total, p.idCliente
+FROM Pago p
+WHERE YEAR(fechaPago) = 2008 and formaPago = 'Transferencia'
+ORDER BY total DESC;
+
+-- 14. Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. Tenga en cuenta que no deben aparecer formas de pago repetidas.
+SELECT DISTINCT p.formaPago 
+FROM Pago p;
+
+
