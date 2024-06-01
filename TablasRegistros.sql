@@ -254,17 +254,17 @@ UPDATE Empleado
 SET codigoJefe = 2
 WHERE idEmpleado IN (1, 3);
 
---
+--Se asigna como jefe al empleado con id 2
 UPDATE Empleado
 SET codigoJefe = 2
 WHERE idEmpleado IN (8, 7);
 
---
+--Se asigna como jefe de los ids 6,9 al empleado con id 4
 UPDATE Empleado
 SET codigoJefe = 4
 WHERE idEmpleado IN (6,9);
 
---
+-- Se asigna a como jefe al empleado con id 10, al empleado con id 5
 UPDATE Empleado
 SET codigoJefe = 5
 WHERE idEmpleado = 10;
